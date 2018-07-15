@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>cheese</title>
+    <meta name="description" content="cheese">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  </head>
+  <body onload="init()">
+    <a-scene>
+      <!--
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="s#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      -->
+      <a-assets>
+        <a-asset-item id="cheese-obj" src="assets/models/cheese.obj"></a-asset-item>
+        <a-asset-item id="cheese-mtl" src="assets/models/cheese.mtl"></a-asset-item>
+      </a-assets>
+      <a-camera position="0 3 5">
+        <a-cursor id="myCursor"cursor="fuse: true; fuseTimeout: 1000" fuse="true" scale="0.8 0.8 0.8" position="0 0 -5" geometry="primitive: ring" material="color: red; shader: flat; opacity:0.5"></a-cursor>
+      </a-camera>
+      <a-entity id="cheese1" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="0 0 -5" scale="1 1 1" rotation="0 0 0">
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.2 1.2 1.2"></a-animation>
+          <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+          <!--
+          <a-animation attribute="position" direction="alternate" dur="1000" easing="ease-in-out-elastic" to="0 2 -5" repeat="indefinite"></a-animation>
+          -->
+          <a-animation attribute="rotation" direction="normal" dur="6000" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+      </a-entity>
+      <a-entity id="cheese2" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="3 0 -4" scale="1 1 1" rotation="0 0 0">
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.2 1.2 1.2"></a-animation>
+          <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+          <a-animation attribute="rotation" direction="normal" dur="6000" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+      </a-entity>
+      <a-entity id="cheese3" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="-2 0 -2" scale="1 1 1" rotation="0 0 0">
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.2 1.2 1.2"></a-animation>
+          <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+          <a-animation attribute="rotation" direction="normal" dur="6000" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+      </a-entity>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="200" height="200" color="#3BDE86"></a-plane>
+      <a-sky color="#60CDFF"></a-sky>
+    </a-scene>
+  </body>
+</html>
