@@ -4,42 +4,2532 @@
     <meta charset="utf-8">
     <title>cheese</title>
     <meta name="description" content="cheese">
+    <meta name="robots" content="noindex,nofollow,noarchive">
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-html-shader@0.2.0/dist/aframe-html-shader.min.js"></script>
+    <script src="https://unpkg.com/aframe-mountain-component@0.3.x/dist/aframe-mountain-component.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/vr.css">
   </head>
-  <body onload="init()">
+  <body>
+    <div id="loader">
+        <p>Now loading...</p>
+    </div>
+    <div class="text01-wrap">
+      <div id="htmlElement01" class="text01">チーズって飛鳥時代から日本にあるんだって。</div>
+    </div>
+    <div class="text01-wrap">
+      <div id="htmlElement02" class="text01">チーズの通り名は白い肉。</div>
+    </div>
+    <div class="text01-wrap">
+      <div id="htmlElement03" class="text01">牛乳よりもお腹にやさしい。</div>
+    </div>
+    <div class="text01-wrap">
+      <div id="htmlElement04" class="text01">穴が空いているのはスイスのチーズ。</div>
+    </div>
+    <div class="text01-wrap">
+      <div id="htmlElement05" class="text01">ハチミツかけて食べるとおいしい。</div>
+    </div>
     <a-scene>
-      <!--
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="s#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      -->
+      <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="true" mountain=""></a-entity>
+      <a-asset-item id="cheese-obj" src="assets/models/cheese.obj"></a-asset-item>
+      <a-asset-item id="cheese-mtl" src="assets/models/cheese.mtl"></a-asset-item>
+      <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
       <a-assets>
-        <a-asset-item id="cheese-obj" src="assets/models/cheese.obj"></a-asset-item>
-        <a-asset-item id="cheese-mtl" src="assets/models/cheese.mtl"></a-asset-item>
+        <img id="poster" src="/assets/images/poster.png" class="poster__img" alt="チーズを探してポスター">
       </a-assets>
-      <a-camera position="0 3 5">
-        <a-cursor id="myCursor"cursor="fuse: true; fuseTimeout: 1000" fuse="true" scale="0.8 0.8 0.8" position="0 0 -5" geometry="primitive: ring" material="color: red; shader: flat; opacity:0.5"></a-cursor>
+      <a-camera position="0 0 50">
+        <a-cursor
+          id="myCursor"cursor="fuse: true; fuseTimeout: 1000"
+          fuse="true" scale="0.8 0.8 0.8"
+          position="0 0 -5"
+          geometry="primitive: ring"
+          material="color: red; shader:flat; opacity:0.7"
+        >
+        </a-cursor>
       </a-camera>
-      <a-entity id="cheese1" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="0 0 -5" scale="1 1 1" rotation="0 0 0">
+      <!-- house -->
+      <a-entity position="0 0 0">
+        <a-image
+          src="#poster"
+          width="2.1"
+          height="2.97"
+          position="-3.2 3 42.29"
+        ></a-image>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 3; depth: 10;"
+          material=" color: #EFBC4D; roughness: 1;"
+          position="5 0 47"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 12; depth: 3;"
+          material=" color: #EFBC4D; roughness: 1;"
+          position="5 0 50.5"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 12; depth: 3;"
+          material=" color: #EFBC4D; roughness: 1;"
+          position="5 0 43.5"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 3; depth: 10;"
+          material=" color: #EFBC4D; roughness: 1;"
+          position="5 5 47"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 3; depth: 10;"
+          material="color: #EFBC4D; roughness: 1;"
+          position="-5 0 47"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 12; depth: 3;"
+          material="color: #EFBC4D; roughness: 1;"
+          position="-5 0 50.5"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 12; depth: 3;"
+          material="color: #EFBC4D; roughness: 1;"
+          position="-5 0 43.5"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 3; depth: 10;"
+          material="color: #EFBC4D; roughness: 1;"
+          position="-5 5 47"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 12; depth: 10.5;"
+          material="color: #EFBC4D; roughness: 1;"
+          position="0 0 52"
+          rotation="0 -90 0"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 12; depth: 3.5;"
+          material="color: #EFBC4D; roughness: 1;"
+          position="-3.5 0 42"
+          rotation="0 -90 0"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 12; depth: 3.5;"
+          material="color: #EFBC4D; roughness: 1;"
+          position="3.5 0 42"
+          rotation="0 -90 0"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 10; depth: 10.5;"
+          material="color: #EFBC4D; roughness: 1;"
+          position="0 5.5 47"
+          rotation="0 -90 90"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 10; depth: 10.5;"
+          material="color: #fff; roughness: 1;"
+          position="0 0 47"
+          rotation="0 -90 90"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 10; depth: 10.5;"
+          material="color: #FF6260; roughness: 1;"
+          position="3 8 47"
+          rotation="0 0 45"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: box; width: 0.5; height: 10; depth: 10.5;"
+          material="color: #FF6260; roughness: 1;"
+          position="-3 8 47"
+          rotation="0 0 -45"
+        >
+        </a-entity>
+        <!-- furniture -->
+        <a-entity id="furniture">
+          <a-entity
+            geometry="primitive: cylinder; height: 0.1; radius: 0.5;"
+            material="color: #986D3B; roughness: 0.8;"
+            position="-3.5 1 44"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cylinder; height: 1; radius: 0.05;"
+            material="color: #986D3B; roughness: 0.8;"
+            position="-3.5 0.5 44"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cylinder; height: 0.1; radius: 0.3;"
+            material="color: #986D3B; roughness: 0.8;"
+            position="-3.5 0.3 44"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cylinder; height: 0.1; radius: 1;"
+            material="color: #3BDE86; roughness: 0.8;"
+            position="-3.5 0.25 44"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: box; width: 4; height: 0.1; depth: 4;"
+            material="color: #EFBC4D; roughness: 0.8;"
+            position="0 0.25 47"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: sphere; height: 0.1; radius: 0.7;"
+            material="color: #FF6260; roughness: 1;"
+            position="3 0.5 43"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: box; width: 1; height: 1; depth: 2;"
+            material="color: #60CDFF; roughness: 0.8;"
+            position="4.3 0.25 47"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: box; width: 2; height: 1; depth: 1;"
+            material="color: #60CDFF; roughness: 0.8;"
+            position="0 0.25 51.5"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: torus; radius: 0.4; radiusTubular: 0.1; arc: 360;"
+            material="color: #FF6260; roughness: 0.8;"
+            rotation="90 0 0"
+            position="-3 0.4 47"
+          ></a-entity>
+          <a-entity
+            geometry="primitive: box; width: 2; height: 0.1; depth: 3;"
+            material="color: #FF6260; roughness: 0.8;"
+            position="0 0.25 43.5"
+          >
+          </a-entity>
+        </a-entity>
+        <!-- furniture -->
+      </a-entity>
+      <!-- house -->
+      <!-- load -->
+      <a-entity
+        geometry="primitive: plane; height: 100; width: 2;"
+        material="side: double; color: #C4AA95; roughness: 1;"
+        rotation="90 0 0"
+        position="0 0.02 20"
+      ></a-entity>
+      <!-- load -->
+      <!-- stone -->
+      <a-entity
+        geometry="primitive: dodecahedron; radius: 0.6;"
+        material="side: double; color: #a3a3a3; roughness: 1;"
+        rotation="90 0 0"
+        position="-3 0.02 38"
+      ></a-entity>
+      <a-entity
+        geometry="primitive: dodecahedron; radius: 0.6;"
+        material="side: double; color: #a3a3a3; roughness: 1;"
+        rotation="90 0 0"
+        position="2 0.02 22"
+      ></a-entity>
+      <a-entity
+        geometry="primitive: dodecahedron; radius: 0.6;"
+        material="side: double; color: #a3a3a3; roughness: 1;"
+        rotation="90 0 0"
+        position="2 0.02 36"
+      ></a-entity>
+      <a-entity position="0 0 3">
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 1.2;"
+          material="side: double; color: #a3a3a3; roughness: 1;"
+          rotation="90 0 0"
+          position="4 0.2 -32"
+        ></a-entity>
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 0.6;"
+          material="side: double; color: #8e8e8e; roughness: 1;"
+          rotation="90 0 0"
+          position="5 0.2 -30"
+        ></a-entity>
+      </a-entity>
+      <!-- stone -->
+      <!-- potted plant -->
+      <a-entity>
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 2.2;"
+          material="color: #268A54; roughness: 0.8;"
+          position="12 0.2 -5"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 1.6;"
+          material="color: #1F6C42; roughness: 0.5;"
+          position="14 0.2 -4"
+        >
+        </a-entity>
+      </a-entity>
+      <a-entity position="-6 -0.5 34">
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 2.2;"
+          material="color: #268A54; roughness: 0.8;"
+          position="12 0.2 -5"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 1.6;"
+          material="color: #1F6C42; roughness: 0.5;"
+          position="14 0.2 -4"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: torusKnot; p: 3; q:7"
+          material="color: #1F6C42; roughness: 0.5;"
+          position="10 -0.2 -4"
+        ></a-entity>
+      </a-entity>
+      <a-entity position="-20 0 0">
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 2.2;"
+          material="color: #268A54; roughness: 0.8;"
+          position="12 0.2 -5"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 1.6;"
+          material="color: #1F6C42; roughness: 0.5;"
+          position="14 0.2 -4"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: torusKnot; p: 3; q:7"
+          material="color: #1F6C42; roughness: 0.5;"
+          position="10 -0.2 -4"
+        ></a-entity>
+      </a-entity>
+      <a-entity position="-18 -0.7 26">
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 2.2;"
+          material="color: #268A54; roughness: 0.8;"
+          position="12 0.2 -5"
+        >
+        </a-entity>
+        <a-entity
+          geometry="primitive: dodecahedron; radius: 1.6;"
+          material="color: #1F6C42; roughness: 0.5;"
+          position="14 0.2 -4"
+        >
+        </a-entity>
+      </a-entity>
+      <a-entity
+        position="22 -0.7 -34"
+        rotation="0 210 0"
+      >
+        <a-entity geometry="primitive: dodecahedron; radius: 2.2;" material="color: #268A54; roughness: 0.8;" position="12 0.2 -5">
+        </a-entity>
+        <a-entity geometry="primitive: dodecahedron; radius: 1.6;" material="color: #1F6C42; roughness: 0.5;" position="14 0.2 -4">
+        </a-entity>
+      </a-entity>
+      <!-- potted plant -->
+      <!-- potted tree-->
+      <!--right-->
+      <a-entity position="50 0 52" rotation="0 -90 0">
+        <a-entity position="10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3 0 8">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="5 0 12">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3.5 0 22">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="4 0 34">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <!--left-->
+        <a-entity position="-10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-6 0 10">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-8 0 16">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-3 0 28">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-5 0 36">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity position="-20 0 52" rotation="0 -90 0">
+        <a-entity position="10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3 0 8">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="5 0 12">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3.5 0 22">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="4 0 34">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <!--left-->
+        <a-entity position="-10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-6 0 10">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-8 0 16">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-3 0 28">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-5 0 36">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity position="-45 0 0">
+        <a-entity position="10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3 0 8">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="5 0 12">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3.5 0 22">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="4 0 34">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <!--left-->
+        <a-entity position="-10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-6 0 10">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-8 0 16">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-3 0 28">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-5 0 36">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity position="-45 0 -50">
+        <a-entity position="10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3 0 8">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="5 0 12">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3.5 0 22">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="4 0 34">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <!--left-->
+        <a-entity position="-10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-6 0 10">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-8 0 16">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-3 0 28">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-5 0 36">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity>
+        <a-entity position="10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3 0 8">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="5 0 12">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3.5 0 22">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="4 0 34">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <!--left-->
+        <a-entity position="-10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-6 0 10">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-8 0 16">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-3 0 28">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-5 0 36">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity position="45 0 0">
+        <a-entity position="10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3 0 8">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="5 0 12">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3.5 0 22">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="4 0 34">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <!--left-->
+        <a-entity position="-10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-6 0 10">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-8 0 16">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-3 0 28">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-5 0 36">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity position="45 0 -50">
+        <a-entity position="10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3 0 8">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="5 0 12">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3.5 0 22">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="4 0 34">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <!--left-->
+        <a-entity position="-10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-6 0 10">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-8 0 16">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-3 0 28">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-5 0 36">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity position="-20 0 -52" rotation="0 90 0">
+        <a-entity position="10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3 0 8">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="5 0 12">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="3.5 0 22">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="4 0 34">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <!--left-->
+        <a-entity position="-10 0 0">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-6 0 10">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-8 0 16">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-3 0 28">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+        <a-entity position="-5 0 36">
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1; radiusTop: 0.2; height: 6;"
+            material="color: #986D3B; roughness: 0.2;"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 2.0; radiusTop: 1.2; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 3 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.6; radiusTop: 0.8; height: 1.5;"
+            material="color: #268A54; roughness: 0.6;"
+            position="0 4.5 0"
+          >
+          </a-entity>
+          <a-entity
+            geometry="primitive: cone; radiusBottom: 1.2; radiusTop: 0.4; height: 1.5;"
+            material="color: #1F6C42; roughness: 0.6;"
+            position="0 6 0"
+          >
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <!-- potted tree-->
+      <!-- cheese -->
+      <a-entity position="-5 0 38">
+        <a-entity
+          geometry="primitive: circle"
+          material="shader: html; target: #htmlElement01; opacity: 0;"
+          position="0 0.5 -5"
+          scale="3 3 3"
+          rotation="-45 0 0"
+        >
+          <a-animation attribute="material.opacity" begin="mouseenter" dur="300" to="1" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="position" begin="mouseenter" dur="300" to="0 1 -5" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="rotation" begin="mouseenter" dur="300" to="0 0 0" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="2 2 2" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="material.opacity" begin="mouseleave" dur="300" to="0" easing="ease-out-cubic"></a-animation>
+        </a-entity>
+        <a-entity id="cheese1" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="0 0 -5" scale="1 1 1" rotation="0 0 0">
           <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.2 1.2 1.2"></a-animation>
           <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
-          <!--
-          <a-animation attribute="position" direction="alternate" dur="1000" easing="ease-in-out-elastic" to="0 2 -5" repeat="indefinite"></a-animation>
-          -->
           <a-animation attribute="rotation" direction="normal" dur="6000" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
       </a-entity>
-      <a-entity id="cheese2" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="3 0 -4" scale="1 1 1" rotation="0 0 0">
+      <a-entity position="18 0 8" rotation="0 -90 0">
+        <a-entity
+          geometry="primitive: circle"
+          material="shader: html; target: #htmlElement02; opacity: 0;"
+          position="3 0.5 -4"
+          scale="3 3 3"
+          rotation="-45 0 0"
+        >
+          <a-animation attribute="material.opacity" begin="mouseenter" dur="300" to="1" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="position" begin="mouseenter" dur="300" to="3 1 -4" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="rotation" begin="mouseenter" dur="300" to="0 0 0" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="2 2 2" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="material.opacity" begin="mouseleave" dur="300" to="0" easing="ease-out-cubic"></a-animation>
+        </a-entity>
+        <a-entity id="cheese2" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="3 0 -4" scale="1 1 1" rotation="0 0 0">
           <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.2 1.2 1.2"></a-animation>
           <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
           <a-animation attribute="rotation" direction="normal" dur="6000" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
       </a-entity>
-      <a-entity id="cheese3" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="-2 0 -2" scale="1 1 1" rotation="0 0 0">
+      <a-entity position="-20 0 -8">
+        <a-entity
+          geometry="primitive: circle"
+          material="shader: html; target: #htmlElement03; opacity: 0;"
+          position="-2 0.5 -2"
+          scale="3 3 3"
+          rotation="-45 0 0"
+        >
+          <a-animation attribute="material.opacity" begin="mouseenter" dur="300" to="1" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="position" begin="mouseenter" dur="300" to="-2 1 -2" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="rotation" begin="mouseenter" dur="300" to="0 0 0" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="2 2 2" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="material.opacity" begin="mouseleave" dur="300" to="0" easing="ease-out-cubic"></a-animation>
+        </a-entity>
+        <a-entity id="cheese3" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="-2 0 -2" scale="1 1 1" rotation="0 0 0">
           <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.2 1.2 1.2"></a-animation>
           <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
           <a-animation attribute="rotation" direction="normal" dur="6000" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
       </a-entity>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="200" height="200" color="#3BDE86"></a-plane>
+      <a-entity position="4 0 57">
+        <a-entity geometry="primitive: circle" material="shader: html; target: #htmlElement03; opacity: 0;" position="-2 0.5 -2"
+          scale="3 3 3" rotation="-45 0 0">
+          <a-animation attribute="material.opacity" begin="mouseenter" dur="300" to="1" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="position" begin="mouseenter" dur="300" to="-2 1 -2" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="rotation" begin="mouseenter" dur="300" to="0 0 0" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="2 2 2" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="material.opacity" begin="mouseleave" dur="300" to="0" easing="ease-out-cubic"></a-animation>
+        </a-entity>
+        <a-entity id="cheese3" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="-2 0 -2" scale="1 1 1" rotation="0 0 0">
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.2 1.2 1.2"></a-animation>
+          <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+          <a-animation attribute="rotation" direction="normal" dur="6000" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+      </a-entity>
+      <a-entity position="16 0 -26">
+        <a-entity geometry="primitive: circle" material="shader: html; target: #htmlElement04; opacity: 0;" position="-2 0.5 -2"
+          scale="3 3 3" rotation="-45 0 0">
+          <a-animation attribute="material.opacity" begin="mouseenter" dur="300" to="1" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="position" begin="mouseenter" dur="300" to="-2 1 -2" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="rotation" begin="mouseenter" dur="300" to="0 0 0" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="2 2 2" easing="ease-out-cubic"></a-animation>
+          <a-animation attribute="material.opacity" begin="mouseleave" dur="300" to="0" easing="ease-out-cubic"></a-animation>
+        </a-entity>
+        <a-entity id="cheese3" class="js-obj" obj-model="obj:#cheese-obj; mtl:#cheese-mtl;" position="-2 0 -2" scale="1 1 1" rotation="0 0 0">
+          <a-animation attribute="scale" begin="mouseenter" dur="300" to="1.2 1.2 1.2"></a-animation>
+          <a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+          <a-animation attribute="rotation" direction="normal" dur="6000" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+      </a-entity>
+      <!-- cheese -->
+      <!-- cheese academy -->
+      <a-entity
+        text-geometry="value: Cheese Academey; size: 4; bevelEnabled: true; bevelSize: 0.25; bevelThickness: 0.25;"
+        material=" color: #fff;"
+        position="-23.5 15 -25; font: #optimerBoldFont"
+      >
+      </a-entity>
+      <!-- cheese academy -->
+      <!-- lake -->
+      <a-entity
+        id="ocean"
+        ocean="density: 12; width: 12; depth: 6 speed: 4"
+        material="color: #9CE3F9; opacity: 0.75; metalness: 0; roughness: 1"
+        rotation="-90 0 0"
+        position="10 0 -27"
+      >
+      </a-entity>
+      <!-- lake -->
+      <!-- hill -->
+      <a-entity
+        geometry="primitive: dodecahedron; radius: 15;"
+        material="color: #268A54; roughness: 0.8;"
+        position="20 -10 20"
+      >
+      </a-entity>
+      <a-entity
+        geometry="primitive: dodecahedron; radius: 15;"
+        material="color: #268A54; roughness: 0.8;"
+        position="5 -10 -37"
+      >
+      </a-entity>
+      <a-entity
+        geometry="primitive: dodecahedron; radius: 15;"
+        material="color: #268A54; roughness: 0.8;"
+        position="-22 -10 30"
+      >
+      </a-entity>
+      <!-- hill -->
+      <!-- base -->
+      <a-entity
+        geometry="primitive: circle; radius: 5"
+        material="side: double; color: #C4AA95; roughness: 1;"
+        position=" -20 0.01 -10"
+        rotation="-90 0 0"
+      >
+      </a-entity>
+      <a-entity
+        geometry="primitive: circle; radius: 4"
+        material="side: double; color: #C4AA95; roughness: 1;"
+        position=" -24 0.01 -8"
+        rotation="-90 0 0"
+      >
+      </a-entity>
+      <a-plane
+        position="0 0 -4"
+        rotation="-90 0 0"
+        width="150" height="150"
+        color="#3BDE86">
+      </a-plane>
+      <!-- base -->
       <a-sky color="#60CDFF"></a-sky>
     </a-scene>
   </body>
+  <script>
+      var scene = document.querySelector('a-scene');
+      var run = function () {
+          document.getElementById("loader").classList.add("hidden");
+      }
+      if (scene.hasLoaded) {
+        run();
+      } else {
+        scene.addEventListener('loaded', run);
+      }
+  </script>
 </html>
