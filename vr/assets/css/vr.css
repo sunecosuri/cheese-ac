@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100000000000;
+    background-color: rgb(47, 75, 102);
+    color: #fff;
+}
+#loader>p {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    width: 100%;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+}
+#loader.hidden {
+    display: none;
+}
+.text01-wrap {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+.text01 {
+    width: 500px;
+    height: 500px;
+    background: #EF644D;
+    padding: 100px;
+    color: #fff;
+    font-size: 260%;
+    font-weight: bold;
+    text-align: justify;
+}
+.poster__img {
+    width: 100%;
+}
