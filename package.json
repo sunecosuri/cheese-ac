@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nuxt",
-    "generate": "nuxt generate",
-    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate",
+    "generate": "DEPLOY_ENV=GH_PAGES nuxt generate",
     "deploy": "push-dir --dir=dist --branch=master --cleanup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
