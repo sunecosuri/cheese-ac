@@ -1,5 +1,5 @@
 {
-  "publicPath": "/chees-ac/_nuxt/",
+  "publicPath": "/_nuxt/",
   "all": [
     "img/course_02.90e167a.jpg",
     "img/header_logo.f896b69.png",
@@ -12,7 +12,7 @@
     "img/news_img.edb392e.jpg",
     "img/course_03.561f5c3.jpg",
     "34dc1032790b8efcfe9e.js",
-    "4dbc655f92f3080c852c.js",
+    "9e91a2527fc1d219632b.js",
     "ff51c52e190e6ca8f58a.js",
     "1f5a98d2abdc9f50df04.js",
     "LICENSES",
@@ -21,7 +21,7 @@
   ],
   "initial": [
     "34dc1032790b8efcfe9e.js",
-    "4dbc655f92f3080c852c.js"
+    "9e91a2527fc1d219632b.js"
   ],
   "async": [
     "ff51c52e190e6ca8f58a.js",

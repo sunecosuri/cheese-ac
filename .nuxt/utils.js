@@ -111,7 +111,7 @@ export async function setContext(app, context) {
       
       payload: context.payload,
       error: context.error,
-      base: '/chees-ac/',
+      base: '/',
       env: {}
     }
     // Only set once
