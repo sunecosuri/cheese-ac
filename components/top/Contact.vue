@@ -67,7 +67,7 @@
 
 <style module>
 
-@import '../../assets/css/values.css';
+@import '~/assets/css/values.css';
 
 .baseFontsize {
 	font-size: var(--font-size-m);

@@ -8,7 +8,7 @@
 
 <style module>
 
-@import '../assets/css/values.css';
+@import '~/assets/css/values.css';
 
 .footer {
   width: 100%;

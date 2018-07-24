@@ -8,16 +8,16 @@
 			:loop="true"
 		>
 			<slide>
-				<img :class="$style.img" src="../../assets/img/about_01.jpg" alt="有名レストランにも安全なチーズを提供しています">
+				<img :class="$style.img" src="~/assets/img/about_01.jpg" alt="有名レストランにも安全なチーズを提供しています">
 			</slide>
 			<slide>
-				<img :class="$style.img" src="../../assets/img/about_02.jpg" alt="広大な農園で育った牛や羊から上質なミルクを搾乳">
+				<img :class="$style.img" src="~/assets/img/about_02.jpg" alt="広大な農園で育った牛や羊から上質なミルクを搾乳">
 			</slide>
 			<slide>
-				<img :class="$style.img" src="../../assets/img/about_03.jpg" alt="先輩がしっかりとサポート">
+				<img :class="$style.img" src="~/assets/img/about_03.jpg" alt="先輩がしっかりとサポート">
 			</slide>
 			<slide>
-				<img :class="$style.img" src="../../assets/img/about_04.jpg" alt="農場の石窯で焼く出来立てのチーズをたっぷり使ったピザは格別の美味しさです">
+				<img :class="$style.img" src="~/assets/img/about_04.jpg" alt="農場の石窯で焼く出来立てのチーズをたっぷり使ったピザは格別の美味しさです">
 			</slide>
 		</carousel>
 	</div>
@@ -36,7 +36,7 @@
 </script>
 
 <style module>
-@import '../../assets/css/values.css';
+@import '~/assets/css/values.css';
 
 .wrap {
 	width: 100%;

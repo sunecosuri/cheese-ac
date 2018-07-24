@@ -25,7 +25,7 @@
 
 <style module>
 
-@import '../assets/css/values.css';
+@import '~/assets/css/values.css';
 
 .globalHeader {
   display: flex;

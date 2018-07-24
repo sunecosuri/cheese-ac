@@ -8,7 +8,7 @@
 		<div :class="$style.wrap">
 			<div :class="$style.details">
 				<div :class="$style.detail">
-					<img :class="$style.img" src="../../assets/img/course_01.jpg" alt="農園">
+					<img :class="$style.img" src="~/assets/img/course_01.jpg" alt="農園">
 					<div :class="$style.text">
 						<div :class="$style.inner">
 							<h3 :class="$style.headline3">本格的な農園を使った実地研修</h3>
@@ -21,7 +21,7 @@
 			</div>
 			<div :class="$style.details">
 				<div :class="$style.detail">
-					<img :class="$style.img" src="../../assets/img/course_02.jpg" alt="講師">
+					<img :class="$style.img" src="~/assets/img/course_02.jpg" alt="講師">
 					<div :class="$style.text">
 						<div :class="$style.inner">
 							<h3 :class="$style.headline3">必要な知識もしっかりと取得</h3>
@@ -34,7 +34,7 @@
 			</div>
 			<div :class="$style.details">
 				<div :class="$style.detail">
-					<img :class="$style.img" src="../../assets/img/course_03.jpg" alt="レストラン">
+					<img :class="$style.img" src="~/assets/img/course_03.jpg" alt="レストラン">
 					<div :class="$style.text">
 						<div :class="$style.inner">
 							<h3 :class="$style.headline3">卒業制作はティスティング審査あり</h3>
@@ -51,7 +51,7 @@
 
 <style module>
 
-@import '../../assets/css/values.css';
+@import '~/assets/css/values.css';
 
 .baseFontsize {
 	font-size: var(--font-size-m);

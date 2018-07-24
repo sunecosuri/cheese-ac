@@ -4,21 +4,21 @@
 		<p :class="$style.subcopy">ニュース</p>
 		<div :class="$style.wrap">
 			<a href="#" :class="$style.box">
-				<img :class="$style.img" src="../../assets/img/news_img.jpg" alt="ピザ">
+				<img :class="$style.img" src="~/assets/img/news_img.jpg" alt="ピザ">
 				<div :class="$style.text">
 					<time :class="$style.date">2016/11/18</time>
 					<p :class="$style.detail">チーズアカデミー卒業生のコスゲさんによるチーズだけをふんだんに使用した話題のピザ屋「Kosuge Pizza」が渋谷でオープンしました！</p>
 				</div>
 			</a>
 			<a href="#" :class="$style.box">
-				<img :class="$style.img" src="../../assets/img/news_img.jpg" alt="ピザ">
+				<img :class="$style.img" src="~/assets/img/news_img.jpg" alt="ピザ">
 				<div :class="$style.text">
 					<time :class="$style.date">2016/11/18</time>
 					<p :class="$style.detail">チーズアカデミー卒業生のコスゲさんによるチーズだけをふんだんに使用した話題のピザ屋「Kosuge Pizza」が渋谷でオープンしました！</p>
 				</div>
 			</a>
 			<a href="#" :class="$style.box">
-				<img :class="$style.img" src="../../assets/img/news_img.jpg" alt="ピザ">
+				<img :class="$style.img" src="~/assets/img/news_img.jpg" alt="ピザ">
 				<div :class="$style.text">
 					<time :class="$style.date">2016/11/18</time>
 					<p :class="$style.detail">チーズアカデミー卒業生のコスゲさんによるチーズだけをふんだんに使用した話題のピザ屋「Kosuge Pizza」が渋谷でオープンしました！</p>
@@ -43,7 +43,7 @@
 
 <style module>
 
-@import '../../assets/css/values.css';
+@import '~/assets/css/values.css';
 
 .baseFontsize {
 	font-size: var(--font-size-m);

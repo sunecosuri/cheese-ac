@@ -6,7 +6,7 @@
 
 <style module>
 
-@import '../assets/css/values.css';
+@import '~/assets/css/values.css';
 
 .button{
   background-color: transparent;
